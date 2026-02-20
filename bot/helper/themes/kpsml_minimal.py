@@ -2,14 +2,14 @@
 class KPSMLStyle:
     # ----------------------
     # async def start(client, message) ---> __main__.py
-    ST_BN1_NAME = '🤖 Repo'
-    ST_BN1_URL = 'https://github.com/Tamilupdates/KPSML-X'
+    ST_BN1_NAME = '🤖 Group'
+    ST_BN1_URL = 'https://t.me/fileleechgroup'
     ST_BN2_NAME = 'Updates 🔥'
-    ST_BN2_URL = 'https://telegram.me/KPSBots'
+    ST_BN2_URL = 'https://telegram.me/rdxmovie_hd'
     ST_MSG = '''<b><i>This bot can mirror all your links|files|torrents to Google Drive or any rclone cloud or to telegram or to ddl servers.</i>\n
 Type {help_command} to get a list of available commands</b>'''
     ST_BOTPM = '''<i>Now, This bot will send all your files and links here. Start Using ...</i>'''
-    ST_UNAUTH = '''<i>You Are not authorized user! Deploy your own KPSML-X Mirror-Leech bot</i>'''
+    ST_UNAUTH = '''<i>You Are not authorized user! Deploy your own RDXMOVIE Mirror-Leech bot</i>'''
     OWN_TOKEN_GENERATE = '''<b>Temporary Token is not yours!</b>\n\n<i>Kindly generate your own.</i>'''
     USED_TOKEN = '''<b>Temporary Token already used!</b>\n\n<i>Kindly generate a new one.</i>'''
     LOGGED_PASSWORD = '''<b>Bot Already Logged In via Password</b>\n\n<i>No Need to Accept Temp Tokens.</i>'''
