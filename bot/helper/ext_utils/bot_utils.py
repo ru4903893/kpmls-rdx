@@ -267,7 +267,7 @@ def get_readable_message():
         }
         status_icon = status_emoji_map.get(status_text, "⚙️")
 
-        msg += "<b>╭───────────────────</b>\n"
+        msg += "<b>╭────────────────</b>\n"
         msg += f"<b>│ Task By 👤</b> {user_mention} <b>( #ID{uid} )</b>\n"
         msg += "<b>│ ✨ RDX STATUS PANEL ✨</b>\n"
 
@@ -288,7 +288,7 @@ def get_readable_message():
             pass
 
         msg += f"<b>│ Stop ⛔ »</b> /{BotCommands.CancelMirror}_{download.gid()}\n"
-        msg += "<b>╰───────────────────</b>\n\n"
+        msg += "<b>╰────────────────</b>\n\n"
 
     if len(msg) == 0:
         return None, None
@@ -325,7 +325,7 @@ def get_readable_message():
     msg += f"<b>│ ⚡ CPU »</b> {cpu}%   <b>│ 💾 FREE »</b> {free_gb} [{free_p}%]\n"
     msg += f"<b>│ 🧠 RAM »</b> {ram}%   <b>│ 🕒 UP »</b> {up}\n"
     msg += f"<b>│ 📥 DL »</b> {get_readable_file_size(dl_speed)}/s   <b>│ 📤 UL »</b> {get_readable_file_size(up_speed)}/s\n"
-    msg += "<b>╰──────────────────╯</b>\n"
+    msg += "<b>╰───────────────╯</b>\n"
 
     return msg, button
 
