@@ -322,10 +322,9 @@ def get_readable_message():
     up = get_readable_time(time() - botStartTime)
 
     msg += "\n<b>╭── SYSTEM MONITOR ──╮</b>\n"
-    msg += f"<b>│ ⚡ CPU »</b> {cpu}%  <b>💾 FREE »</b> {free_gb} [{free_p}%]\n"
-    msg += f"<b>│ 🧠 RAM »</b> {ram}%  <b>🕒 UP »</b> {up}\n"
-    msg += f"<b>│ 📥 DL »</b> {get_readable_file_size(dl_speed)}/s  <b>📤 UL »</b> {get_readable_file_size(up_speed)}/s\n"
-    msg += "<b>╰───────────────╯</b>\n"
+    msg += f"<b>⚡ CPU »</b> {cpu}% <b>💾 FREE »</b> {free_gb} [{free_p}%]\n"
+    msg += f"<b>🧠 RAM »</b> {ram}% <b>🕒 UP »</b> {up}\n"
+    msg += f"<b>📥 DL »</b> {get_readable_file_size(dl_speed)}/s <b>📤 UL »</b> {get_readable_file_size(up_speed)}/s\n"
 
     return msg, button
 
