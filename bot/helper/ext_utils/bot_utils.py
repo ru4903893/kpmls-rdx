@@ -145,11 +145,11 @@ def get_progress_bar_string(pct):
         pct = 0.0
 
     p = max(0.0, min(100.0, pct))
-    length = 12
+    length = 8
     filled = int(round((p / 100) * length))
     filled = max(0, min(length, filled))
 
-    bar = "❤️‍🔥" * filled + "🤍" * (length - filled)
+    bar = "❤️" * filled + "♡" * (length - filled)
 
     return f"[{bar}]"
 
