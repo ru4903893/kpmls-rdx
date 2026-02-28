@@ -485,10 +485,6 @@ class MirrorLeechListener:
             if not files:
                 await sendMessage(self.message, msg, photo=self.random_pic)
             else:
-                btn = ButtonMaker()
-                saved = False
-                if self.source_url and config_dict['SOURCE_LINK']:
-                    btn.ubutton(BotTheme('SOURCE_URL'), self.source_url)
                 if self.isSuperGroup:
                     btn = extra_btns(btn)[0]
                 message = msg
