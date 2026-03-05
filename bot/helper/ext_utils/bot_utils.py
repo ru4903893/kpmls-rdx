@@ -269,7 +269,8 @@ def get_readable_message():
             "Seed": "🌱",
         }
         status_icon = status_emoji_map.get(status_text, "⚙️")
-
+        
+        msg += "<b>╭────────────────</b>\n"
         msg += f"<b>┊ Task By 👤</b> {user_mention} <b>( #ID{uid} )</b>\n"
         msg += "<b>┊ ✨ RDX STATUS PANEL ✨</b>\n"
 
@@ -285,7 +286,7 @@ def get_readable_message():
         try:
             in_mode = download.upload_details.get("mode")
             if in_mode:
-                msg += f"<b>│ In Mode 🤓 »</b> <code>#{escape(str(in_mode))}</code>\n"
+                msg += f"<b>┊ In Mode 🤓 »</b> <code>#{escape(str(in_mode))}</code>\n"
         except Exception:
             pass
 
