@@ -6,7 +6,11 @@ SUPPORTED_HOSTS = [
     "pixeldrain.com",
     "mega.nz",
     "mediafire.com",
-    "gofile.io"
+    "gofile.io",
+    "hubcloud",
+    "hubdrive",
+    "drivefire",
+    "sharer"
 ]
 
 def extract_mirrors(url):
@@ -18,12 +22,11 @@ def extract_mirrors(url):
         links = []
 
         for host in SUPPORTED_HOSTS:
-            pattern = r'https?://[^"\\']*' + re.escape(host) + r'[^"\\']*'
+            pattern = rf"https?://[^\"']*{re.escape(host)}[^\"']*"
             matches = re.findall(pattern, html)
             links.extend(matches)
 
         links = list(set(links))
-
         return links
 
     except Exception:
