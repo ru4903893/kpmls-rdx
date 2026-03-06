@@ -270,7 +270,7 @@ def get_readable_message():
         }
         status_icon = status_emoji_map.get(status_text, "⚙️")
         
-        msg += "╭━━━━━━━━━━━━━━━━━━╮\n"
+        msg += "╭━━━━━━━━━━━━━━━━━╮\n"
         msg += f"👤 {user_mention} (#ID{uid})\n\n"
         msg += f"📊 {bar}\n\n"
         msg += f"📁 Done   » {download.processed_bytes()}\n"
@@ -304,7 +304,7 @@ def get_readable_message():
 
         msg += "\n"
         msg += f"⛔ /{BotCommands.CancelMirror}_{download.gid()}\n"
-        msg += "╰━━━━━━━━━━━━━━━━━━╯\n\n"
+        msg += "╰━━━━━━━━━━━━━━━━━╯\n\n"
 
     if len(msg) == 0:
         return None, None
