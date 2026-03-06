@@ -865,3 +865,5 @@ bot = wztgClient('bot', TELEGRAM_API, TELEGRAM_HASH, bot_token=BOT_TOKEN, worker
 bot_loop = bot.loop
 bot_name = bot.me.username
 scheduler = AsyncIOScheduler(timezone=str(get_localzone()), event_loop=bot_loop)
+
+excluded_extensions = []
