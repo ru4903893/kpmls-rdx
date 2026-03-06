@@ -271,7 +271,7 @@ def get_readable_message():
         status_icon = status_emoji_map.get(status_text, "⚙️")
         
         
-        msg += "<b>╭━━━〔 ⚡ RDX ULTIMATE STATUS ⚡ 〕━━━╮</b>
+        msg += "╭━━━〔 ⚡ RDX ULTIMATE STATUS ⚡ 〕━━━╮\n"
 "
         msg += f"<b>👤 Owner   »</b> {user_mention} <b>(#ID{uid})</b>
 
@@ -315,7 +315,7 @@ def get_readable_message():
 "
         msg += f"/{BotCommands.CancelMirror}_{download.gid()}
 "
-        msg += "<b>╰━━━━━━━━━━━━━━━━╯</b>
+        msg += "╰━━━━━━━━━━━━━━━━╯\n"
 "
 
 
