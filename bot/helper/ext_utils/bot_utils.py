@@ -283,7 +283,6 @@ def get_readable_message():
             leechers = download.leechers_num()
             if seeders is not None and leechers is not None:
                 msg += f"┊ 🌱 {seeders} | 💬 {leechers}\n"
-"
         except Exception:
             pass
 
