@@ -249,7 +249,7 @@ def get_readable_message():
         if len(name) > 85:
             name = name[:82] + "..."
         idx = STATUS_START + i
-        msg += f"<b>{idx}.</b> <i>{name}</i>\n"
+        msg += f"<b>{idx}.</b> <i>{name}</i>\n\n"
 
         elapsed_sec = time() - download.message.date.timestamp()
         elapsed = get_readable_time(elapsed_sec)
