@@ -192,7 +192,7 @@ class Gofile:
 
         async with ClientSession() as session:
             async with session.get(
-                url=f"{self.api_url}contents/{contentId}&token={self.token}&cache=true"
+                url=f"{self.api_url}contents/{contentId}?token={self.token}&cache=true"
             ) as resp:
                 return await self.__resp_handler(await resp.json())
 
