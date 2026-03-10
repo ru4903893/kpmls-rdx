@@ -159,7 +159,7 @@ def direct_link_generator(link):
     elif 'letsupload.io' in domain:
         return letsupload(link)
     elif 'gofile.io' in domain:
-        return gofile(link, auth)
+        return gofile(link)
     elif 'easyupload.io' in domain:
         return easyupload(link)
     elif 'streamvid.net' in domain:
