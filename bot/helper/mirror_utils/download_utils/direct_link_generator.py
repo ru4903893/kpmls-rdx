@@ -1,23 +1,26 @@
-from cloudscraper import create_scraper
-from hashlib import sha256
-from http.cookiejar import MozillaCookieJar
+#!/usr/bin/env python3
+from threading import Thread
+from base64 import b64decode
 from json import loads
-from lxml.etree import HTML
-from os import path as ospath
-from re import findall, match, search
-from requests import Session, post, get, RequestException
-from requests.adapters import HTTPAdapter
-from time import sleep, time
-from urllib.parse import parse_qs, urlparse, quote
-from urllib3.util.retry import Retry
+from os import path
 from uuid import uuid4
-from base64 import b64decode, b64encode
+from hashlib import sha256
+from time import sleep
+from re import findall, match, search
 
-from bot import config_dict
-from ...ext_utils.exceptions import DirectDownloadLinkException
-from ...ext_utils.help_messages import PASSWORD_ERROR_MESSAGE
-from ...ext_utils.links_utils import is_share_link
-from ...ext_utils.status_utils import speed_string_to_bytes
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
+from lxml.etree import HTML
+from requests import Session, session as req_session, post
+from urllib.parse import parse_qs, quote, unquote, urlparse, urljoin
+from cloudscraper import create_scraper
+from lk21 import Bypass
+from http.cookiejar import MozillaCookieJar
+
+from bot import LOGGER, config_dict
+from bot.helper.ext_utils.bot_utils import get_readable_time, is_share_link, is_index_link, is_magnet
+from bot.helper.ext_utils.exceptions import DirectDownloadLinkException
+from bot.helper.ext_utils.help_messages import PASSWORD_ERROR_MESSAGE
 
 # GoFile token cache to avoid rate limiting
 gofile_token_cache = None
