@@ -216,15 +216,30 @@ def get_readable_message():
         globals()['STATUS_START'] = STATUS_LIMIT * (PAGES - 1)
         globals()['PAGE_NO'] = PAGES
 
-    def get_progress_bar_dots(pct, length: int = 8):
-        try:
-            p = float(str(pct).strip('%'))
-        except Exception:
-            p = 0.0
-        p = max(0.0, min(100.0, p))
-        filled = int(round((p / 100.0) * length))
-        filled = max(0, min(length, filled))
-        return f"[{'◆'*filled}{'◇'*(length-filled)}] {p:.2f}%"
+    def get_progress_bar_dots(pct, length: int = 12):
+    try:
+        p = float(str(pct).strip('%'))
+    except Exception:
+        p = 0.0
+
+    p = max(0.0, min(100.0, p))
+
+    slot = 100 / length
+    full = int(p // slot)
+    remainder = p % slot
+
+    partial = int((remainder / slot) * 4)
+    partial_chars = ["○", "◔", "◑", "◕"]
+
+    bar = "⬤" * full
+
+    if full < length and partial > 0:
+        bar += partial_chars[min(partial, 3)]
+        full += 1
+
+    bar += "○" * (length - full)
+
+    return f"[{bar}] {int(p)}%"
 
     def convert_speed_to_bytes_per_second(spd: str) -> float:
         try:
