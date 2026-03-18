@@ -494,10 +494,7 @@ class MirrorLeechListener:
                 message = msg
                 btns = btn.build_menu(2)
                 buttons = btn
-                if self.isSuperGroup and not self.isPM:
-                    message += BotTheme('L_LL_MSG')
-                elif self.isSuperGroup and self.isPM:
-                    message += BotTheme('L_LL_MSG')
+                if self.isSuperGroup and self.isPM:
                     message += BotTheme('L_BOT_MSG')
                     buttons.ibutton(BotTheme('CHECK_PM'), f"kpsmlx {user_id} botpm", 'header')
                 if config_dict['SAFE_MODE'] and self.isSuperGroup:
