@@ -487,48 +487,22 @@ class MirrorLeechListener:
             else:
                 btn = ButtonMaker()
                 saved = False
-                if self.source_url and config_dict['SOURCE_LINK']:
-                    btn.ubutton(BotTheme('SOURCE_URL'), self.source_url)
-                if self.isSuperGroup:
-                    btn = extra_btns(btn)[0]
-                message = msg
-                btns = btn.build_menu(2)
-                buttons = btn
-                if self.isSuperGroup and self.isPM:
-                    message += BotTheme('L_BOT_MSG')
-                    buttons.ibutton(BotTheme('CHECK_PM'), f"kpsmlx {user_id} botpm", 'header')
-                if config_dict['SAFE_MODE'] and self.isSuperGroup:
-                    await sendMessage(self.message, message, buttons.build_menu(2), photo=self.random_pic)
-                fmsg = '\n'
-                for index, (link, name) in enumerate(files.items(), start=1):
-                    fmsg += f"{index}. <a href='{link}'>{name}</a>\n"
-                    if len(msg.encode() + fmsg.encode()) > (4000 if len(config_dict['IMAGES']) == 0 else 1000):
-                            
-                        if config_dict['SAFE_MODE']:
-                            if self.isSuperGroup:
-                                await sendMessage(self.botpmmsg, msg + BotTheme('L_LL_MSG') + fmsg, btns, photo=self.random_pic)
-                            else:
-                                await sendMessage(self.message, message + fmsg, buttons.build_menu(2), photo=self.random_pic)
-                        else:
-                            if config_dict['SAVE_MSG'] and not saved and self.isSuperGroup:
-                                saved = True
-                                buttons.ibutton(BotTheme('SAVE_MSG'), 'save', 'footer')
-                            await sendMessage(self.message, message + fmsg, buttons.build_menu(2), photo=self.random_pic)
-                        await sleep(1.5)
-                        fmsg = ''
+            if self.source_url and config_dict['SOURCE_LINK']:
+            btn.ubutton(BotTheme('SOURCE_URL'), self.source_url)
+            if self.isSuperGroup:
+                btn = extra_btns(btn)[0]
+            message = msg
+            buttons = btn
 
-                if fmsg != '\n':
-                    if config_dict['SAFE_MODE']:
-                        if self.isSuperGroup:
-                            await sendMessage(self.botpmmsg, msg + BotTheme('L_LL_MSG') + fmsg, btns, photo=self.random_pic)
-                        else:
-                            await sendMessage(self.message, message + fmsg, buttons.build_menu(2), photo=self.random_pic)
-                    else:
-                        if config_dict['SAVE_MSG'] and not saved and self.isSuperGroup:
-                            saved = True
-                            buttons.ibutton(BotTheme('SAVE_MSG'), 'save', 'footer')
-                        await sendMessage(self.message, message + fmsg, buttons.build_menu(2), photo=self.random_pic)
+            # ✅ Only Bot PM Message
+            if self.isSuperGroup and self.isPM:
+                message += BotTheme('L_BOT_MSG')
+                buttons.ibutton(BotTheme('CHECK_PM'), f"kpsmlx {user_id} botpm", 'header')
 
+            # ✅ Send ONLY main (no file list)
+            if config_dict['SAFE_MODE'] and self.isSuperGroup:
+                await sendMessage(self.message, message, buttons.build_menu(2), photo=self.random_pic)
+                
             if self.seed:
                 if self.newDir:
                     await clean_target(self.newDir)
